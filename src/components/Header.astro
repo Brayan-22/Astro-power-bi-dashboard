@@ -1,0 +1,110 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+}
+
+const {
+  title = "Dashboard Power BI",
+  subtitle = "Vista incrustada — estética sobria y responsiva"
+} = Astro.props;
+---
+
+<header class="appbar">
+  <div class="title" aria-hidden="false">
+    <div class="logo" aria-hidden="true">BI</div>
+    <div>
+      <h1>{title}</h1>
+      <p>{subtitle}</p>
+    </div>
+  </div>
+
+  <div class="controls" role="toolbar" aria-label="Controles del informe">
+    <button class="btn" id="btnRefresh" title="Recargar informe">Recargar</button>
+    <button class="btn" id="btnOpen" title="Abrir en nueva pestaña">Abrir en nueva pestaña</button>
+    <button class="btn primary" id="btnFullscreen" title="Abrir a pantalla completa">Pantalla completa</button>
+  </div>
+</header>
+
+<style>
+  header.appbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:18px 20px;
+    background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+    backdrop-filter: blur(6px);
+  }
+
+  .title{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+  }
+
+  .logo{
+    width:44px;
+    height:44px;
+    border-radius:8px;
+    background:#031026;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-weight:700;
+    font-size:18px;
+    box-shadow: 0 4px 12px rgba(2,6,23,0.12);
+  }
+
+  .title h1{
+    margin:0;
+    font-size:16px;
+    letter-spacing: -0.2px;
+  }
+
+  .title p{
+    margin:2px 0 0 0;
+    color:var(--muted);
+    font-size:13px;
+  }
+
+  .controls{
+    display:flex;
+    gap:8px;
+    align-items:center;
+  }
+
+  .btn{
+    border:1px solid rgba(15,23,42,0.06);
+    background:transparent;
+    padding:8px 12px;
+    border-radius:10px;
+    font-size:13px;
+    cursor:pointer;
+    color:var(--accent);
+  }
+
+  .btn:hover{
+    background:rgba(15,23,42,0.04);
+  }
+
+  .btn.primary{
+    background:#0f172a;
+    color:white;
+    border: none;
+    padding:9px 14px;
+    box-shadow: 0 6px 14px rgba(2,6,23,0.12);
+  }
+
+  .btn.primary:hover{
+    background:#1e293b;
+  }
+
+  @media (max-width:720px){
+    header.appbar{ padding:12px;}
+    .logo{ width:40px; height:40px; font-size:16px; }
+    .controls{ gap:6px; }
+    .btn{ padding:7px 10px; font-size:12px; }
+  }
+</style>

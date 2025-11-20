@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import PowerBIEmbed from '../components/PowerBIEmbed.astro';
+
+// URL del informe de Power BI
+const reportUrl = "https://app.powerbi.com/view?r=eyJrIjoiYTAwM2IyM2ItZTMwNS00OTllLTkyZjQtNjJlMjMwZGE3NDE1IiwidCI6ImQ1MTM4OGVmLTZhYjAtNDM2My05Zjk0LWQ1NjY0NGE0NTk3MCIsImMiOjR9";
+---
+
+<Layout title="Dashboard Power BI — Vista">
+  <Header />
+  <PowerBIEmbed reportUrl={reportUrl} />
+</Layout>
